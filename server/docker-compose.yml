@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  # Service pour l'application FastAPI
+  app:
+    build: .
+    ports:
+      - "8000:${APP_PORT}"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  # Service pour la base de données PostgreSQL
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+# Volume pour persister les données de PostgreSQL
+volumes:
+  postgres_data:
