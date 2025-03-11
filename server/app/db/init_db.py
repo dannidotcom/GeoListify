@@ -1,9 +1,9 @@
 from sqlalchemy.orm import Session
 
-from server.core.security import get_password_hash
-from server.db.base import Base
-from server.models.user import User
-from server.db.session import engine
+from app.core.security import get_password_hash
+from app.db.base import Base
+from app.db.models.user import User
+from app.db.session import engine
 
 def init_db(db: Session) -> None:
     # Create tables
@@ -15,7 +15,7 @@ def init_db(db: Session) -> None:
         # Create admin user
         admin_user = User(
             username="admin",
-            password=get_password_hash("adminpassword"),  # Change this in production
+            password=get_password_hash("adminpassword"),
             role="admin"
         )
         db.add(admin_user)

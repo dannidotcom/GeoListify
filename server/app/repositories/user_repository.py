@@ -2,10 +2,10 @@ from typing import Optional
 
 from sqlalchemy.orm import Session
 
-from server.core.security import get_password_hash, verify_password
-from server.db.models.user import User
-from server.repositories.base_repository import BaseRepository
-from server.schemas.user import UserCreate, UserUpdate
+from app.core.security import get_password_hash, verify_password
+from app.db.models.user import User
+from app.repositories.base_repository import BaseRepository
+from app.schemas.user import UserCreate, UserUpdate
 
 class UserRepository(BaseRepository[User, UserCreate, UserUpdate]):
     def get_by_username(self, db: Session, *, username: str) -> Optional[User]:

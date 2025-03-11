@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
 
-from server.db.base import Base
+from app.db.base import Base
 
 class Listing(Base):
     __tablename__ = "listings"

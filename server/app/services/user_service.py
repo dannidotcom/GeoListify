@@ -3,8 +3,8 @@ from typing import List, Optional
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
-from server.repositories.user_repository import user_repository
-from server.schemas.user import User, UserCreate, UserUpdate
+from app.repositories.user_repository import user_repository
+from app.schemas.user import User, UserCreate, UserUpdate
 
 class UserService:
     def get_user(self, db: Session, user_id: int) -> User:

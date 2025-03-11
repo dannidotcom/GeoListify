@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run database migrations
-RUN py -m server.db.migrate
+RUN py -m app.db.migrate
 
 # Command to launch the application
-CMD ["uvicorn", "server.main:app", "--host", "${APP_HOST}", "--port", "${APP_PORT}"]
+CMD ["uvicorn", "app.main:app", "--host", "${APP_HOST}", "--port", "${APP_PORT}"]

@@ -2,9 +2,9 @@ from typing import List
 
 from sqlalchemy.orm import Session
 
-from server.db.models.listing import Listing
-from server.repositories.base_repository import BaseRepository
-from server.schemas.listing import ListingCreate, ListingUpdate
+from app.db.models.listing import Listing
+from app.repositories.base_repository import BaseRepository
+from app.schemas.listing import ListingCreate, ListingUpdate
 
 class ListingRepository(BaseRepository[Listing, ListingCreate, ListingUpdate]):
     def get_multi_by_owner(

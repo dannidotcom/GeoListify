@@ -3,8 +3,8 @@ from typing import List, Optional
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 
-from server.repositories.listing_repository import listing_repository
-from server.schemas.listing import Listing, ListingCreate, ListingUpdate
+from app.repositories.listing_repository import listing_repository
+from app.schemas.listing import Listing, ListingCreate, ListingUpdate
 
 class ListingService:
     def get_listing(self, db: Session, listing_id: int) -> Listing:

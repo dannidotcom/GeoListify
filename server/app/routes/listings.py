@@ -3,12 +3,12 @@ from typing import Any, List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
-from server.dependencies.auth import get_current_active_user
-from server.dependencies.get_db import get_db_session
-from server.models.user import User
-from server.schemas.listing import Listing, ListingCreate, ListingUpdate
-from server.services.listing_service import listing_service
-from server.services.user_service import user_service
+from app.dependencies.auth import get_current_active_user
+from app.dependencies.get_db import get_db_session
+from app.db.models.user import User
+from app.schemas.listing import Listing, ListingCreate, ListingUpdate
+from app.services.listing_service import listing_service
+from app.services.user_service import user_service
 
 router = APIRouter()
 

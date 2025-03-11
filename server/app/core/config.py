@@ -3,6 +3,17 @@ from pydantic import AnyHttpUrl, validator
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
+    
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
+    APP_HOST: str
+    APP_PORT: int
+
+    class Config:
+        env_file = ".env"
     PROJECT_NAME: str = "GeoListify"
     API_V1_STR: str = "/api/v1"
     
@@ -12,7 +23,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
     # Database settings
-    DATABASE_URL: str = "postgresql://postgres:postgres@localhost/geolistify"
+    DATABASE_URL: str = "postgresql://alphonse:admin23@localhost/db_geolistify"
     
     # CORS
     CORS_ORIGINS: List[Union[str, AnyHttpUrl]] = ["http://localhost:3000"]

@@ -1,13 +1,13 @@
 from typing import Optional
-from pydantic import BaseModel, Field, confloat
+from pydantic import BaseModel, Field
 
 class ListingBase(BaseModel):
     name: str
     description: Optional[str] = None
     category: str
     address: str
-    latitude: confloat(ge=-90, le=90)
-    longitude: confloat(ge=-180, le=180)
+    latitude: float = Field(..., ge=-90, le=90)
+    longitude: float = Field(..., ge=-180, le=180)
 
 class ListingCreate(ListingBase):
     pass
@@ -17,8 +17,8 @@ class ListingUpdate(BaseModel):
     description: Optional[str] = None
     category: Optional[str] = None
     address: Optional[str] = None
-    latitude: Optional[confloat(ge=-90, le=90)] = None
-    longitude: Optional[confloat(ge=-180, le=180)] = None
+    latitude: Optional[float] = Field(None, ge=-90, le=90)
+    longitude: Optional[float] = Field(None, ge=-180, le=180)
 
 class ListingInDBBase(ListingBase):
     id: int
